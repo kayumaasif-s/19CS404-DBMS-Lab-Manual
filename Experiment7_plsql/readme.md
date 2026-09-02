@@ -33,24 +33,28 @@ END;
 - Declare two numeric variables and initialize them.
 - Use an `IF` statement to compare the values.
 - Display the greater number using `DBMS_OUTPUT.PUT_LINE`.
-- Program
-```
-DECLARE
-    a NUMBER := 50;
-    b NUMBER := 80;
-BEGIN
-    IF a > b THEN
-        DBMS_OUTPUT.PUT_LINE('Greater number is: ' || a);
-    ELSE
-        DBMS_OUTPUT.PUT_LINE('Greater number is: ' || b);
-    END IF;
-END;
-/
-```
 
 **Expected Output:**  
 Greater number is: 80
-<img width="783" height="805" alt="image" src="https://github.com/user-attachments/assets/965c4dee-32bf-4bfa-ab8a-b241e1e8479d" />
+
+## Code:
+```sql
+DECLARE
+    num1 NUMBER := 80; 
+    num2 NUMBER := 28; 
+BEGIN
+    IF num1 > num2 THEN
+        DBMS_OUTPUT.PUT_LINE('Greater number is: ' || num1);
+    ELSE
+        DBMS_OUTPUT.PUT_LINE('Greater number is: ' || num2);
+    END IF;
+END;
+```
+
+## Output :
+<img width="365" height="153" alt="7(1)" src="https://github.com/user-attachments/assets/c36efe78-6e15-4b51-a9bb-b68031d49724" />
+
+
 
 ---
 
@@ -61,26 +65,27 @@ Greater number is: 80
 - Initialize a `sum` variable to 0.
 - Use a `WHILE` loop to iterate from 1 to `n`, adding each number to the sum.
 - Display the result using `DBMS_OUTPUT.PUT_LINE`.
-- Program
-```
-DECLARE
-    n NUMBER := 10;
-    sum NUMBER := 0;
-    i NUMBER := 1;
-BEGIN
-    WHILE i <= n LOOP
-        sum := sum + i;
-        i := i + 1;
-    END LOOP;
-
-    DBMS_OUTPUT.PUT_LINE('Sum of first ' || n || ' natural numbers is: ' || sum);
-END;
-/
-```
 
 **Expected Output:**  
 Sum of first 10 natural numbers is: 55
-<img width="909" height="815" alt="image" src="https://github.com/user-attachments/assets/bf447414-acc1-4628-a0d2-96c5e58cfe78" />
+
+Code :
+```sql
+DECLARE
+    n NUMBER := 10;      
+    i NUMBER := 1;       
+    total_sum NUMBER := 0; 
+BEGIN
+    WHILE i <= n LOOP
+        total_sum := total_sum + i;
+        i := i + 1;
+    END LOOP;
+
+    DBMS_OUTPUT.PUT_LINE('Sum of first ' || n || ' natural numbers is: ' || total_sum);
+END;
+```
+## Output :
+<img width="392" height="147" alt="7(2)" src="https://github.com/user-attachments/assets/e9d2cea5-ae2b-4fcf-b425-b0ba5db66223" />
 
 ---
 
@@ -91,39 +96,38 @@ Sum of first 10 natural numbers is: 55
 - Initialize the first two Fibonacci numbers (0 and 1).
 - Use a loop to generate the next terms using the formula `c = a + b`.
 - Print each term in the series.
-- Program
-```
-DECLARE
-    n NUMBER := 7;
-    a NUMBER := 0;
-    b NUMBER := 1;
-    c NUMBER;
-    i NUMBER := 1;
-BEGIN
-    DBMS_OUTPUT.PUT('Fibonacci sequence: ');
-
-    WHILE i <= n LOOP
-        DBMS_OUTPUT.PUT(a);
-
-        IF i < n THEN
-            DBMS_OUTPUT.PUT(', ');
-        END IF;
-
-        c := a + b;
-        a := b;
-        b := c;
-        i := i + 1;
-    END LOOP;
-
-    DBMS_OUTPUT.NEW_LINE;
-END;
-/
-```
 
 **Expected Output:**  
 n = 7  
 Fibonacci sequence: 0, 1, 1, 2, 3, 5, 8
-<img width="785" height="804" alt="image" src="https://github.com/user-attachments/assets/a994fea6-a6b4-4eff-99ec-15b815238051" />
+
+## Code :
+```sql
+DECLARE
+    n NUMBER := 7; 
+    a NUMBER := 0;
+    b NUMBER := 1;
+    c NUMBER;
+    i NUMBER := 3;
+BEGIN
+    DBMS_OUTPUT.PUT_LINE('Fibonacci sequence:');
+    DBMS_OUTPUT.PUT_LINE(a);
+    DBMS_OUTPUT.PUT_LINE(b);
+
+    WHILE i <= n LOOP
+        c := a + b;
+        DBMS_OUTPUT.PUT_LINE(c);
+        a := b;
+        b := c;
+        i := i + 1;
+    END LOOP;
+END;
+```
+## Output :
+
+<img width="331" height="264" alt="7(3)" src="https://github.com/user-attachments/assets/88b3fe9f-8d0b-4cbd-8e00-51e83b72f16c" />
+
+
 
 ---
 
@@ -133,28 +137,33 @@ Fibonacci sequence: 0, 1, 1, 2, 3, 5, 8
 - Declare a variable `n` and assign a value (e.g., 1535).
 - Use a loop to extract each digit using modulo and reverse the number.
 - Display the reversed number.
-- Program
-```
-DECLARE
-    n NUMBER := 1535;
-    rev NUMBER := 0;
-    digit NUMBER;
-BEGIN
-    WHILE n > 0 LOOP
-        digit := MOD(n, 10);
-        rev := rev * 10 + digit;
-        n := TRUNC(n / 10);
-    END LOOP;
-
-    DBMS_OUTPUT.PUT_LINE('Reversed number is ' || rev);
-END;
-/
-```
 
 **Expected Output:**  
 n = 1535  
 Reversed number is 5351
-<img width="796" height="770" alt="image" src="https://github.com/user-attachments/assets/74feecbd-021b-4b9a-9bc1-92c44f2c06f6" />
+
+## Code :
+```sql
+DECLARE
+    n NUMBER := 1535;
+    original NUMBER := 1535;
+    reversed NUMBER := 0;
+    digit NUMBER;
+BEGIN
+    WHILE n > 0 LOOP
+        digit := MOD(n, 10);
+        reversed := reversed * 10 + digit;
+        n := TRUNC(n / 10);
+    END LOOP;
+
+    DBMS_OUTPUT.PUT_LINE('n = ' || original);
+    DBMS_OUTPUT.PUT_LINE('Reversed number is ' || reversed);
+END;
+```
+
+## Output :
+
+<img width="387" height="148" alt="7(4)" src="https://github.com/user-attachments/assets/1ba368bf-6d60-4054-9bfb-5cab7e3a87a5" />
 
 ---
 
@@ -164,37 +173,38 @@ Reversed number is 5351
 - Declare three numeric variables `a`, `b`, and `c`.
 - Use nested `IF-ELSIF-ELSE` conditions to find the largest among the three.
 - Display the largest number.
-- Program
-```
+
+**Expected Output:**  
+a = 10, b = 9, c = 15  
+Largest of three number is 15
+
+
+## Code :
+```sql
 DECLARE
     a NUMBER := 10;
     b NUMBER := 9;
     c NUMBER := 15;
     largest NUMBER;
 BEGIN
-    IF a > b THEN
-        IF a > c THEN
-            largest := a;
-        ELSE
-            largest := c;
-        END IF;
+    IF a >= b AND a >= c THEN
+        largest := a;
+    ELSIF b >= a AND b >= c THEN
+        largest := b;
     ELSE
-        IF b > c THEN
-            largest := b;
-        ELSE
-            largest := c;
-        END IF;
+        largest := c;
     END IF;
 
+    DBMS_OUTPUT.PUT_LINE('a = ' || a || ', b = ' || b || ', c = ' || c);
     DBMS_OUTPUT.PUT_LINE('Largest of three number is ' || largest);
 END;
-/
 ```
 
-**Expected Output:**  
-a = 10, b = 9, c = 15  
-Largest of three number is 15
-<img width="842" height="784" alt="image" src="https://github.com/user-attachments/assets/9eab5e59-7ab9-4782-985b-2fd218aeae0d" />
+## Output :
+
+<img width="340" height="150" alt="7(5)" src="https://github.com/user-attachments/assets/c4e697a6-e2bd-4fb9-9b25-daf28a756540" />
+
+
 
 ## RESULT
 Thus, the PL/SQL programs using variables, conditionals, and loops were executed successfully.
